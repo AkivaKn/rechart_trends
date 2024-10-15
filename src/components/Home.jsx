@@ -26,5 +26,34 @@ export default function Home() {
     };
     fetchBenchmarks();
   }, []);
-  return <h1>Home page</h1>;
+  return (
+    <>
+      <h1>Payment Data</h1>
+      <h2>Totals by Provider</h2>
+      <ul>
+        {providerTotals.map((provider, index) => {
+          return (
+            <li key={index}>
+              <h3>{provider.provider_name}</h3>
+              <p>
+                Payment: 
+                {new Intl.NumberFormat('en-UK', {
+                  style: "currency",
+                  currency: "EUR",
+                }).format(provider.total_payment)}
+              </p>
+              <p>Benchmark: {new Intl.NumberFormat('en-UK', {
+                  style: "currency",
+                  currency: "EUR",
+              }).format(provider.total_benchmark)}</p>
+                  <>Benchmark difference: {new Intl.NumberFormat('en-UK', {
+                  style: "currency",
+                  currency: "EUR",
+              }).format(provider.total_benchmark - provider.total_payment)}</>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
 }
