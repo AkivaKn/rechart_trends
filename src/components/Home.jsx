@@ -47,7 +47,7 @@ export default function Home() {
       compactDisplay: "short",
     }).format(value)}`;
   return (
-    <div className="w-[90vw] px-6 md:px-10 " id="projects">
+    <div className="w-full m-0 px-6 md:px-10" id="projects">
       <h1 className="md:text-4xl text-2xl font-extrabold text-gray-800 md:mb-8 mb-4">
         Payment Data
       </h1>
